@@ -14,12 +14,12 @@ namespace App_ClaseModelamiento
     {
        
         dbGeneral dbG=new dbGeneral();
-        Products p = new Products();
+        Products p= new Products();
         public Form1()
         {
             InitializeComponent();
             dbG.ObtenerConexion();
-            dbG.Buscar(this.dataProducts);
+            dbG.Buscar(dataProducts);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,20 +45,6 @@ namespace App_ClaseModelamiento
             {
                 MessageBox.Show("Error al guardar los datos", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void dataProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        
-        }
-
-        private void dataProducts_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            txtID.Text = dataProducts.CurrentRow.Cells[0].Value.ToString();
-            txtName.Text = dataProducts.CurrentRow.Cells[1].Value.ToString();
-            txtPrice.Text = dataProducts.CurrentRow.Cells[2].Value.ToString();
-            txtAmount.Text = dataProducts.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }

@@ -131,7 +131,6 @@
             this.dataProducts.Name = "dataProducts";
             this.dataProducts.Size = new System.Drawing.Size(721, 237);
             this.dataProducts.TabIndex = 8;
-            this.dataProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataProducts_CellContentClick_1);
             // 
             // Column1
             // 

@@ -121,7 +121,7 @@ namespace App_ClaseModelamiento
             {
                 if (value > 0)
                 {
-                    this.amount=value;
+                    this.amount=0;
                 }
                 else
                 {
