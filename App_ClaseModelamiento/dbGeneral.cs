@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms; //PARA poder ocupar el data girl 
-using MySql.Data.MySqlClient;
 namespace App_ClaseModelamiento
 {
     public class dbGeneral
@@ -75,7 +76,10 @@ namespace App_ClaseModelamiento
                     Convert.ToString(p._Id),
                     p._Name,
                      Convert.ToString(p._Price),
-                     Convert.ToString(p._Amount)
+                     Convert.ToString(p._Amount),
+                     Convert.ToString(p.CalculatePrice()),
+                     Convert.ToString(p.CalculateIva()),
+                     Convert.ToString(p.CalculatePriceFinal())
                     };
                     grilla.Rows.Add(rows);
                 }
@@ -84,6 +88,32 @@ namespace App_ClaseModelamiento
             {
                 MessageBox.Show("Error al listar los datos de la DB");
             }
+
         }
+
+        public int Actualizar(Products p)
+        {
+            int retorno = 0;
+            MySqlConnection conexion = this.ObtenerConexion();
+            MySqlCommand comando = new MySqlCommand(string.Format("Update tbl_products set nombre " + " = '{0}', price={1}, amount= {2} where id = {3}", p._Name, p._Price, p._Amount, p._Id), conexion);
+            retorno = comando.ExecuteNonQuery();
+            conexion.Close();
+            return retorno;
+        }
+
+        public int Eliminar(int pId)
+        {
+            int retorno = 0;
+            MySqlConnection conexion = this.ObtenerConexion();
+            MySqlCommand comando = new MySqlCommand(string.Format("Delete From tbl_products where id " + "={0}", pId), conexion);
+
+            retorno = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return retorno;
+        }
+
+
     }
 }

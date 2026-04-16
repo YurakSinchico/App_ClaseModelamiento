@@ -44,6 +44,9 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpadate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,7 +129,10 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.dataProducts.Location = new System.Drawing.Point(39, 184);
             this.dataProducts.Name = "dataProducts";
             this.dataProducts.Size = new System.Drawing.Size(721, 237);
@@ -173,6 +179,7 @@
             this.btnUpadate.TabIndex = 10;
             this.btnUpadate.Text = "Update";
             this.btnUpadate.UseVisualStyleBackColor = true;
+            this.btnUpadate.Click += new System.EventHandler(this.btnUpadate_Click);
             // 
             // btnDelete
             // 
@@ -183,6 +190,22 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Total ";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "IVA";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Price Total";
+            this.Column7.Name = "Column7";
             // 
             // Form1
             // 
@@ -228,6 +251,9 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnUpadate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
 

@@ -54,5 +54,44 @@ namespace App_ClaseModelamiento
             txtPrice.Text = dataProducts.CurrentRow.Cells[2].Value.ToString();
             txtAmount.Text = dataProducts.CurrentRow.Cells[3].Value.ToString();
         }
+
+        private void btnUpadate_Click(object sender, EventArgs e)
+        {
+            p._Id= Convert.ToInt32(txtID.Text.Trim());
+            p._Name = txtName.Text;
+            p._Price = Convert.ToDouble(txtPrice.Text);
+            p._Amount = Convert.ToInt32(txtAmount.Text);
+
+            if (dbG.Actualizar(p) > 0)
+            {
+                MessageBox.Show("Los datos del docente se actualizaron", "Datos Actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dbG.Buscar(dataProducts);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo actualizar", "Error al Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta Seguro que desea eliminar el Producto Actual", "Estas Seguro ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (dbG.Eliminar(Convert.ToInt32(txtID.Text)) > 0)
+                {
+
+                    MessageBox.Show("Producto Eliminado Correctamente!", "Producto Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbG.Buscar(dataProducts);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudoeliminar el producto", "Producto No Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+            else
+                MessageBox.Show("Se cancelo la eliminacion", "Eliminacion Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+    
     }
 }

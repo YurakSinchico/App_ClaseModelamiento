@@ -129,5 +129,19 @@ namespace App_ClaseModelamiento
                 }
             }
         }
+
+        public double CalculatePrice()
+        {
+            return this.price * this.amount;
+        }
+
+        public double CalculateIva()
+        {
+            return this.CalculatePrice() * 0.15;
+        }
+        public double CalculatePriceFinal()
+        {
+            return this.CalculatePrice()+this.CalculateIva();
+        }
     }
 }
