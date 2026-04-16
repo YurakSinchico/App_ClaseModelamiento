@@ -46,5 +46,13 @@ namespace App_ClaseModelamiento
                 MessageBox.Show("Error al guardar los datos", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dataProducts.CurrentRow.Cells[0].Value.ToString();
+            txtName.Text = dataProducts.CurrentRow.Cells[1].Value.ToString();
+            txtPrice.Text = dataProducts.CurrentRow.Cells[2].Value.ToString();
+            txtAmount.Text = dataProducts.CurrentRow.Cells[3].Value.ToString();
+        }
     }
 }
